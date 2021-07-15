@@ -11,6 +11,7 @@ resource "aws_efs_file_system" "default" {
   performance_mode                = var.performance_mode
   provisioned_throughput_in_mibps = var.provisioned_throughput_in_mibps
   throughput_mode                 = var.throughput_mode
+  availability_zone_name          = var.availability_zone_name
 
   dynamic "lifecycle_policy" {
     for_each = var.transition_to_ia == "" ? [] : [1]
